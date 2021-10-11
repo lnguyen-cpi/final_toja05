@@ -34,6 +34,7 @@ pipeline {
             }
            steps {
                sh '''
+                    chmod +x -R ${env.WORKSPACE}
                     ./nodejs/build.sh
                 '''
             }
@@ -50,6 +51,7 @@ pipeline {
             }
            steps {
                 sh '''
+                    chmod +x -R ${env.WORKSPACE}
                     ./python/build.sh
                 '''
             }
@@ -69,6 +71,7 @@ pipeline {
                     agent { label "master" }
                     steps {
                         sh '''
+                            chmod +x -R ${env.WORKSPACE}
                             ./nodejs/build.sh
                         '''
                     }
@@ -77,6 +80,7 @@ pipeline {
                     agent { label "master" }
                     steps {
                         sh '''
+                             chmod +x -R ${env.WORKSPACE}
                              ./python/build.sh
                         '''
                     }
