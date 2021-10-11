@@ -77,7 +77,7 @@ pipeline {
                             chmod +x -R ${env.WORKSPACE}
                             echo $NODE_JS_REPO
                             echo $NODE_JS_DIR
-                            echp $DOCKERHUB_USERNAME
+                            echo $DOCKERHUB_USERNAME
                             ./nodejs/build.sh
                         '''
                     }
