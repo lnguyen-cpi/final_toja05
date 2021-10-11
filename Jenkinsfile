@@ -99,6 +99,7 @@ pipeline {
             }
            steps {
                sh '''
+                    chmod +x -R ${WORKSPACE}
                     ./nodejs/push.sh
                '''
             }
@@ -114,6 +115,7 @@ pipeline {
             }
            steps {
                  sh '''
+                   chmod +x -R ${WORKSPACE}
                    ./python/push.sh
                 '''
             }
@@ -132,6 +134,7 @@ pipeline {
                     agent { label "master" }
                     steps {
                         sh '''
+                            chmod +x -R ${WORKSPACE}
                             ./nodejs/push.sh
                         '''
                     }
@@ -140,6 +143,7 @@ pipeline {
                     agent { label "master" }
                     steps {
                         sh '''
+                             chmod +x -R ${WORKSPACE}
                              ./python/push.sh
                         '''
                     }
@@ -158,6 +162,7 @@ pipeline {
             }
            steps {
                 sh '''
+                    chmod +x -R ${WORKSPACE}
                     ./nodejs/deploy.sh
                 '''
             }
@@ -174,6 +179,7 @@ pipeline {
             }
            steps {
                  sh '''
+                   chmod +x -R ${WORKSPACE}
                    ./python/deploy.sh
                 '''
             }
@@ -194,6 +200,7 @@ pipeline {
                     agent { label "node-1" }
                     steps {
                         sh '''
+                            chmod +x -R ${WORKSPACE}
                             ./nodejs/deploy.sh
                         '''
                     }
@@ -202,6 +209,7 @@ pipeline {
                     agent { label "node-1" }
                     steps {
                         sh '''
+                             chmod +x -R ${WORKSPACE}
                              ./python/deploy.sh
                         '''
                     }
