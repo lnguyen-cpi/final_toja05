@@ -117,7 +117,6 @@ pipeline {
         
         stage('Push All') {
             
-            agent { label "master" }
             when { 
                 expression { 
                    return params.CHOICES == 'all'
@@ -179,7 +178,7 @@ pipeline {
         
         stage('Deploy All') {
             
-            agent { label "node-1" }
+           
             when { 
                 expression { 
                    return params.CHOICES == 'all'
@@ -188,7 +187,7 @@ pipeline {
             parallel {
                
                 stage('Deploy NodeJs') {
-                    agent { label "master" }
+                    agent { label "node-1" }
                     steps {
                         sh '''
                             ./nodejs/deploy.sh
@@ -196,7 +195,7 @@ pipeline {
                     }
                 }
                 stage('Deploy Python') {
-                    agent { label "master" }
+                    agent { label "node-1" }
                     steps {
                         sh '''
                              ./python/deploy.sh
