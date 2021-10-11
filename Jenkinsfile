@@ -35,11 +35,7 @@ pipeline {
            steps {
                sh '''
                     chmod +x -R ${WORKSPACE}
-                    git clone ${NODE_JS_REPO}
-                    cd ${NODE_JS_DIR}
-                    docker build -t ${DOCKERHUB_USERNAME}/${NODE_JS_DIR}:latest .
-                    cd ..
-                    rm -r ${NODE_JS_DIR}
+                    ./nodejs/build.sh
                 '''
             }
         }
@@ -55,7 +51,7 @@ pipeline {
             }
            steps {
                 sh '''
-                    chmod +x -R ${env.WORKSPACE}
+                    chmod +x -R ${WORKSPACE}
                     ./python/build.sh
                 '''
             }
@@ -75,7 +71,7 @@ pipeline {
                     agent { label "master" }
                     steps {
                         sh '''
-                            chmod +x -R ${env.WORKSPACE}
+                            chmod +x -R ${WORKSPACE}
                             ./nodejs/build.sh
                         '''
                     }
@@ -84,7 +80,7 @@ pipeline {
                     agent { label "master" }
                     steps {
                         sh '''
-                             chmod +x -R ${env.WORKSPACE}
+                             chmod +x -R ${WORKSPACE}
                              ./python/build.sh
                         '''
                     }
